@@ -28,13 +28,6 @@ export default function CartPage() {
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Handle hydration: only render cart items after client-side mount
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const subtotal = getTotalPrice();
   const discount = couponApplied ? subtotal * 0.1 : 0;
   const shipping = subtotal > 500000 ? 0 : 500000;

@@ -35,7 +35,6 @@ export default function ProductPage() {
   const { getReviewsByProductId, addReview, getAverageRating, getReviewCount } = useReviewStore();
   const { products } = useProductStore();
   
-  const [mounted, setMounted] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [newComment, setNewComment] = useState("");
@@ -46,9 +45,11 @@ export default function ProductPage() {
   const avgRating = getAverageRating(productId);
   const reviewCount = getReviewCount(productId);
   
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Use lazy initializer to avoid hydration mismatch
+  const [mounted, setMounted] = useState(() => {
+    if (typeof window !== 'undefined') return true;
+    return false;
+  });
 
   if (!mounted) {
     return (

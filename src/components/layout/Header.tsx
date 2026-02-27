@@ -32,13 +32,6 @@ export default function Header() {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
-  // Handle hydration: only render dynamic content after client-side mount
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -117,7 +110,7 @@ export default function Header() {
               aria-label="باز کردن سبد خرید"
             >
               <ShoppingCart className="w-5 h-5" />
-              {mounted && totalItems > 0 && (
+              {totalItems > 0 && (
                 <span className="absolute -top-1 -left-1 w-5 h-5 bg-gradient-to-r from-violet-500 to-indigo-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
                   {totalItems > 9 ? "۹+" : totalItems}
                 </span>
@@ -125,7 +118,7 @@ export default function Header() {
             </button>
 
             {/* User Menu with Dropdown */}
-            {mounted && isAuthenticated && currentUser ? (
+            {isAuthenticated && currentUser ? (
               <div className="hidden md:block relative" ref={userMenuRef}>
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
@@ -284,7 +277,7 @@ export default function Header() {
                 داشبورد
               </Link>
             )}
-            {mounted && isAuthenticated && currentUser && (
+            {isAuthenticated && currentUser && (
               <>
                 <Link
                   href="/profile"

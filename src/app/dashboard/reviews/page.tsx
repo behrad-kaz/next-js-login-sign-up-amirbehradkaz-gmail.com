@@ -22,23 +22,10 @@ function ReviewsContent() {
   const { getAllReviews, deleteReview } = useReviewStore();
   const { products } = useProductStore();
   
-  const [mounted, setMounted] = useState(false);
   const [search, setSearch] = useState("");
   
   const reviews = getAllReviews();
   
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
   const getProductName = (productId: string) => {
     const product = products.find((p) => p.id === productId);
     return product?.name || "محصول نامشخص";

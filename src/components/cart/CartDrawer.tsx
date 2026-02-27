@@ -13,13 +13,6 @@ export default function CartDrawer() {
     useCartStore();
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  // Handle hydration: only render cart items after client-side mount
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeCart();

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import {
   Search,
   SlidersHorizontal,
@@ -34,15 +34,11 @@ const features = [
 ];
 
 export default function HomePage() {
-  const { products, fetchProducts } = useProductStore();
+  const { products } = useProductStore();
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("همه");
   const [sortBy, setSortBy] = useState("featured");
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
 
   const filteredProducts = useMemo(() => {
     let result = [...products];
