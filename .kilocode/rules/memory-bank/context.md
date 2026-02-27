@@ -20,6 +20,8 @@ The template has been expanded into a complete, production-ready e-commerce appl
 - [x] 8 mock products, 4 mock users with realistic data
 - [x] Zero TypeScript errors, zero ESLint errors
 - [x] Committed and pushed to git
+- [x] Expanded mock products from 8 to 35 across all categories
+- [x] Added pagination to shop page (12 products per page) with smart page number display
 
 ## Current Structure
 
