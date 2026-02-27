@@ -3,6 +3,7 @@
     "builder": "NIXPACKS",
     "installCommand": "npm install",
     "buildCommand": "npm run build",
-    "startCommand": "npm run start"
+    "startCommand": "npm run start",
+    "nodeVersion": "20"
   }
 }
