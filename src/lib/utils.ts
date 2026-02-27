@@ -8,12 +8,15 @@ export function formatPrice(price: number): string {
   return `${formatted} تومان`;
 }
 
-export function formatDate(dateString: string): string {
+export function formatDate(dateString: string | undefined | null): string {
+  if (!dateString) return "-";
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "-";
   return new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
-  }).format(new Date(dateString));
+  }).format(date);
 }
 
 export function truncate(str: string, length: number): string {

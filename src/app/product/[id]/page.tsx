@@ -33,12 +33,16 @@ export default function ProductPage() {
   const { addItem, openCart } = useCartStore();
   const { toggleItem, isInWishlist } = useWishlistStore();
   const { getReviewsByProductId, addReview, getAverageRating, getReviewCount } = useReviewStore();
-  const { products } = useProductStore();
+  const { products, fetchProducts } = useProductStore();
   
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [newComment, setNewComment] = useState("");
   const [newRating, setNewRating] = useState(5);
+  
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
   
   const product: Product | undefined = products.find((p) => p.id === productId);
   const reviews = getReviewsByProductId(productId);

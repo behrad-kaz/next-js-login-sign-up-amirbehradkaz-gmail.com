@@ -4,7 +4,7 @@ import Header from "@/components/layout/Header";
 import CartDrawer from "@/components/cart/CartDrawer";
 
 export const metadata: Metadata = {
-  title: "لوکس‌شاپ — محصولات ویژه",
+  title: "KAZSHOP - فروشگاه اینترنتی",
   description:
     "مجموعه‌ای منتخب از بهترین محصولات. کیفیت و سبک در هر کالایی که ارائه می‌دهیم.",
 };

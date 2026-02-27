@@ -24,6 +24,7 @@ The template has been expanded into a complete, production-ready e-commerce appl
 - [x] Added pagination to shop page (12 products per page) with smart page number display
 - [x] Fixed lint errors: removed setState in useEffect for mounted state
 - [x] Reverted to localStorage (no database)
+- [x] Migrated to json-server for products/users data (db.json) instead of data.ts
 
 ## Current Structure
 
@@ -48,7 +49,8 @@ The template has been expanded into a complete, production-ready e-commerce appl
 | `src/store/cartStore.ts` | Cart state (Zustand + persist) | ✅ Done |
 | `src/store/productStore.ts` | Products state (Zustand + persist) | ✅ Done |
 | `src/types/index.ts` | TypeScript types | ✅ Done |
-| `src/lib/data.ts` | Mock data + constants | ✅ Done |
+| `src/lib/api.ts` | API functions for json-server (getProducts, createProduct, etc.) | ✅ Done |
+| `db.json` | json-server database with products, users, categories | ✅ Done |
 | `src/lib/utils.ts` | Utility functions (cn, formatPrice, etc.) | ✅ Done |
 
 ## Key Features
@@ -61,7 +63,7 @@ The template has been expanded into a complete, production-ready e-commerce appl
 - Persisted in localStorage via Zustand
 
 ### Shop
-- 8 premium products across 6 categories
+- 6 premium products from json-server (stored in db.json)
 - Search by name, description, tags
 - Filter by category
 - Sort by price, rating, newest
@@ -85,6 +87,7 @@ The template has been expanded into a complete, production-ready e-commerce appl
 
 - `lucide-react` - Icons
 - `zustand` - State management with persistence
+- `json-server` - Mock REST API backend
 
 ## Session History
 
@@ -92,3 +95,4 @@ The template has been expanded into a complete, production-ready e-commerce appl
 |------|---------|
 | Initial | Template created with base setup |
 | 2026-02-26 | Full e-commerce store built (LuxeShop) |
+| 2026-02-27 | Migrated to json-server for products/users data |

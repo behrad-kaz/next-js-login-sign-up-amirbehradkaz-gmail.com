@@ -1,0 +1,172 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "هدفون بی‌سیم پریمیوم",
+      "description": "صدای کریستالی با هدفون بی‌سیم پریمیوم ما تجربه کنید. این هدفون با فناوری حذف نویز فعال (ANC) صدای محیط را حذف می‌کند تا شما بتوانید به موسیقی مورد علاقه‌تان تمرکز کنید. باتری قدرتمند ۳۰ ساعته امکان استفاده طولانی مدت را فراهم می‌کند. کوشن‌های گوشی از مواد مموری فوم نرم پوشیده شده‌اند که راحتی فوق‌العاده‌ای را در استفاده طولانی تضمین می‌کند.",
+      "price": 15000000,
+      "originalPrice": 20000000,
+      "category": "الکترونیک",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
+      "images": [
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=500&q=80",
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500&q=80",
+        "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=500&q=80"
+      ],
+      "stock": 45,
+      "rating": 4.8,
+      "reviewCount": 234,
+      "tags": [
+        "بی‌سیم",
+        "حذف نویز",
+        "پریمیوم",
+        "هدفون"
+      ],
+      "createdAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "ساعت چرمی مینیمالیست",
+      "description": "ساعت ظریف ساخته‌شده از چرم اصل ایتالیایی. این ساعت با طراحی مینیمالیستی و شیک، مناسب برای تمامی موقعیت‌هاست.",
+      "price": 9500000,
+      "originalPrice": 12500000,
+      "category": "اکسسوری",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
+      "stock": 28,
+      "rating": 4.6,
+      "reviewCount": 156,
+      "tags": [
+        "چرم",
+        "مینیمالیست",
+        "لوکس"
+      ],
+      "createdAt": "2024-01-20T10:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "ردیاب هوشمند تناسب اندام",
+      "description": "معیارهای سلامتی خود را با دقت دنبال کنید. این ردیاب هوشمند با صفحه نمایش AMOLED و فناوری‌های پیشرفته.",
+      "price": 7500000,
+      "originalPrice": 10000000,
+      "category": "الکترونیک",
+      "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&q=80",
+      "stock": 67,
+      "rating": 4.5,
+      "reviewCount": 389,
+      "tags": [
+        "تناسب اندام",
+        "سلامت",
+        "هوشمند"
+      ],
+      "createdAt": "2024-02-01T10:00:00Z"
+    },
+    {
+      "id": "4",
+      "name": "قهوه‌ساز حرفه‌ای",
+      "description": "قهوه با کیفیت کافه در خانه دم کنید. تنظیمات قابل برنامه‌ریزی، آسیاب داخلی و کارافه حرارتی.",
+      "price": 12500000,
+      "originalPrice": 16500000,
+      "category": "خانه و آشپزخانه",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80",
+      "stock": 19,
+      "rating": 4.7,
+      "reviewCount": 178,
+      "tags": [
+        "قهوه",
+        "آشپزخانه",
+        "پریمیوم"
+      ],
+      "createdAt": "2024-02-10T10:00:00Z"
+    },
+    {
+      "id": "979c",
+      "name": "گربه",
+      "description": "گربه گنگ",
+      "price": 15000000,
+      "originalPrice": 2000000,
+      "category": "زیبایی",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7O6bZo8htN3x07G95gEnLJRAm7YBxwJgzmg&s",
+      "images": [
+        "https://www.mamp.one/wp-content/uploads/2024/09/image-resources2.jpg"
+      ],
+      "stock": 4,
+      "rating": 4.5,
+      "reviewCount": 0,
+      "tags": [
+        "پت"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "admin-1",
+      "name": "امیربهراد کاظمی",
+      "email": "amirbehradkaz@gmail.com",
+      "password": "admin123",
+      "role": "admin",
+      "createdAt": "2024-01-01T00:00:00Z",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=amirbehrad"
+    },
+    {
+      "id": "user-1",
+      "name": "سارا جانسون",
+      "email": "sarah@example.com",
+      "password": "user123",
+      "role": "user",
+      "createdAt": "2024-01-10T00:00:00Z",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah"
+    },
+    {
+      "id": "user-2",
+      "name": "مایکل چن",
+      "email": "michael@example.com",
+      "password": "user123",
+      "role": "user",
+      "createdAt": "2024-01-15T00:00:00Z",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=michael"
+    },
+    {
+      "id": "user-3",
+      "name": "اما ویلسون",
+      "email": "emma@example.com",
+      "password": "user123",
+      "role": "user",
+      "createdAt": "2024-02-01T00:00:00Z",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=emma"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "همه"
+    },
+    {
+      "id": "2",
+      "name": "الکترونیک"
+    },
+    {
+      "id": "3",
+      "name": "اکسسوری"
+    },
+    {
+      "id": "4",
+      "name": "خانه و آشپزخانه"
+    },
+    {
+      "id": "5",
+      "name": "ورزشی"
+    },
+    {
+      "id": "6",
+      "name": "زیبایی"
+    },
+    {
+      "id": "7",
+      "name": "مبلمان"
+    },
+    {
+      "id": "8",
+      "name": "خوراکی"
+    }
+  ]
+}

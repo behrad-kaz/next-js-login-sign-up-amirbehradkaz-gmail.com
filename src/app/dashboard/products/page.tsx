@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Plus,
@@ -37,12 +37,16 @@ const emptyForm = {
 type FormData = typeof emptyForm;
 
 export default function ProductsPage() {
-  const { products, addProduct, updateProduct, deleteProduct } = useProductStore();
+  const { products, fetchProducts, addProduct, updateProduct, deleteProduct } = useProductStore();
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [form, setForm] = useState<FormData>(emptyForm);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   const filtered = products.filter(
     (p) =>

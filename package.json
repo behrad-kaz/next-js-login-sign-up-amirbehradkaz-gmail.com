@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.1",
@@ -28,6 +29,7 @@
     "drizzle-kit": "^0.31.9",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.0.0",
+    "json-server": "^1.0.0-beta.3",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
   }
