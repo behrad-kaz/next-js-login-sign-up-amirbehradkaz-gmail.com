@@ -25,7 +25,7 @@ const emptyForm = {
   description: "",
   price: "",
   originalPrice: "",
-  category: "Electronics",
+  category: "الکترونیک",
   image: "",
   stock: "",
   rating: "4.5",
@@ -106,27 +106,27 @@ export default function ProductsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-black text-white">Products</h1>
+          <h1 className="text-3xl font-black text-white">محصولات</h1>
           <p className="text-slate-400 mt-1">
-            Manage your product catalog ({products.length} total)
+            مدیریت کاتالوگ محصولات ({products.length} محصول)
           </p>
         </div>
         <Button onClick={openAdd}>
           <Plus className="w-4 h-4" />
-          Add Product
+          افزودن محصول
         </Button>
       </div>
 
       {/* Search */}
       <div className="mb-6">
         <div className="relative max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input
             type="text"
-            placeholder="Search products..."
+            placeholder="جستجوی محصولات..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+            className="w-full pr-10 pl-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
           />
         </div>
       </div>
@@ -137,26 +137,26 @@ export default function ProductsPage() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-white/10">
-                <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Product
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Category
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Price
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Stock
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Rating
-                </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Added
+                <th className="text-right px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  محصول
                 </th>
                 <th className="text-right px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                  Actions
+                  دسته‌بندی
+                </th>
+                <th className="text-right px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  قیمت
+                </th>
+                <th className="text-right px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  موجودی
+                </th>
+                <th className="text-right px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  امتیاز
+                </th>
+                <th className="text-right px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  تاریخ افزودن
+                </th>
+                <th className="text-left px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  عملیات
                 </th>
               </tr>
             </thead>
@@ -248,7 +248,7 @@ export default function ProductsPage() {
           {filtered.length === 0 && (
             <div className="flex flex-col items-center justify-center py-16 gap-3">
               <Package className="w-10 h-10 text-slate-600" />
-              <p className="text-slate-400">No products found</p>
+              <p className="text-slate-400">محصولی یافت نشد</p>
             </div>
           )}
         </div>
@@ -264,7 +264,7 @@ export default function ProductsPage() {
           <div className="relative w-full max-w-2xl bg-slate-900 border border-white/10 rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
               <h2 className="text-xl font-bold text-white">
-                {editingProduct ? "Edit Product" : "Add New Product"}
+                {editingProduct ? "ویرایش محصول" : "افزودن محصول جدید"}
               </h2>
               <button
                 onClick={() => setShowModal(false)}
@@ -277,48 +277,48 @@ export default function ProductsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="sm:col-span-2">
                   <Input
-                    label="Product Name"
+                    label="نام محصول"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Premium Wireless Headphones"
+                    placeholder="هدفون بی‌سیم پریمیوم"
                   />
                 </div>
                 <div className="sm:col-span-2">
                   <label className="text-sm font-medium text-slate-300 block mb-1.5">
-                    Description
+                    توضیحات
                   </label>
                   <textarea
                     value={form.description}
                     onChange={(e) => setForm({ ...form, description: e.target.value })}
-                    placeholder="Product description..."
+                    placeholder="توضیحات محصول..."
                     rows={3}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
                   />
                 </div>
                 <Input
-                  label="Price ($)"
+                  label="قیمت ($)"
                   type="number"
                   value={form.price}
                   onChange={(e) => setForm({ ...form, price: e.target.value })}
                   placeholder="99.99"
                 />
                 <Input
-                  label="Original Price ($)"
+                  label="قیمت اصلی ($)"
                   type="number"
                   value={form.originalPrice}
                   onChange={(e) => setForm({ ...form, originalPrice: e.target.value })}
-                  placeholder="149.99 (optional)"
+                  placeholder="149.99 (اختیاری)"
                 />
                 <div>
                   <label className="text-sm font-medium text-slate-300 block mb-1.5">
-                    Category
+                    دسته‌بندی
                   </label>
                   <select
                     value={form.category}
                     onChange={(e) => setForm({ ...form, category: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
                   >
-                    {categories.filter((c) => c !== "All").map((cat) => (
+                    {categories.filter((c) => c !== "همه").map((cat) => (
                       <option key={cat} value={cat} className="bg-slate-800">
                         {cat}
                       </option>
@@ -326,14 +326,14 @@ export default function ProductsPage() {
                   </select>
                 </div>
                 <Input
-                  label="Stock"
+                  label="موجودی"
                   type="number"
                   value={form.stock}
                   onChange={(e) => setForm({ ...form, stock: e.target.value })}
                   placeholder="100"
                 />
                 <Input
-                  label="Rating (0-5)"
+                  label="امتیاز (۰-۵)"
                   type="number"
                   value={form.rating}
                   onChange={(e) => setForm({ ...form, rating: e.target.value })}
@@ -343,7 +343,7 @@ export default function ProductsPage() {
                   step="0.1"
                 />
                 <Input
-                  label="Review Count"
+                  label="تعداد نظرات"
                   type="number"
                   value={form.reviewCount}
                   onChange={(e) => setForm({ ...form, reviewCount: e.target.value })}
@@ -351,7 +351,7 @@ export default function ProductsPage() {
                 />
                 <div className="sm:col-span-2">
                   <Input
-                    label="Image URL"
+                    label="آدرس تصویر"
                     value={form.image}
                     onChange={(e) => setForm({ ...form, image: e.target.value })}
                     placeholder="https://images.unsplash.com/..."
@@ -359,10 +359,10 @@ export default function ProductsPage() {
                 </div>
                 <div className="sm:col-span-2">
                   <Input
-                    label="Tags (comma separated)"
+                    label="برچسب‌ها (با کاما جدا کنید)"
                     value={form.tags}
                     onChange={(e) => setForm({ ...form, tags: e.target.value })}
-                    placeholder="wireless, premium, noise-cancelling"
+                    placeholder="بی‌سیم، پریمیوم، حذف نویز"
                   />
                 </div>
               </div>
@@ -373,14 +373,14 @@ export default function ProductsPage() {
                   className="flex-1"
                 >
                   <Save className="w-4 h-4" />
-                  {editingProduct ? "Save Changes" : "Add Product"}
+                  {editingProduct ? "ذخیره تغییرات" : "افزودن محصول"}
                 </Button>
                 <Button
                   variant="ghost"
                   onClick={() => setShowModal(false)}
                   className="flex-1"
                 >
-                  Cancel
+                  انصراف
                 </Button>
               </div>
             </div>
@@ -399,9 +399,9 @@ export default function ProductsPage() {
             <div className="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mx-auto mb-4">
               <Trash2 className="w-7 h-7 text-red-400" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Delete Product?</h3>
+            <h3 className="text-xl font-bold text-white mb-2">حذف محصول؟</h3>
             <p className="text-slate-400 text-sm mb-6">
-              This action cannot be undone. The product will be permanently removed.
+              این عمل قابل بازگشت نیست. محصول به طور دائمی حذف می‌شود.
             </p>
             <div className="flex gap-3">
               <Button
@@ -409,14 +409,14 @@ export default function ProductsPage() {
                 onClick={() => handleDelete(deleteConfirm)}
                 className="flex-1"
               >
-                Delete
+                حذف
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => setDeleteConfirm(null)}
                 className="flex-1"
               >
-                Cancel
+                انصراف
               </Button>
             </div>
           </div>

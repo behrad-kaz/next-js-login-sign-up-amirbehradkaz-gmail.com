@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Mail, Lock, Eye, EyeOff, Sparkles, ArrowRight } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, Sparkles, ArrowLeft } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
@@ -29,7 +29,7 @@ export default function LoginPage() {
     if (result.success) {
       router.push("/");
     } else {
-      setError(result.error || "Login failed");
+      setError(result.error || "ورود ناموفق بود");
     }
   };
 
@@ -37,8 +37,8 @@ export default function LoginPage() {
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative w-full max-w-md">
@@ -49,14 +49,14 @@ export default function LoginPage() {
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-500/30 mb-4">
               <Sparkles className="w-7 h-7 text-white" />
             </div>
-            <h1 className="text-2xl font-black text-white">Welcome back</h1>
-            <p className="text-slate-400 text-sm mt-1">Sign in to your LuxeShop account</p>
+            <h1 className="text-2xl font-black text-white">خوش برگشتید</h1>
+            <p className="text-slate-400 text-sm mt-1">وارد حساب لوکس‌شاپ خود شوید</p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
             <Input
-              label="Email address"
+              label="آدرس ایمیل"
               type="email"
               placeholder="you@example.com"
               value={form.email}
@@ -67,9 +67,9 @@ export default function LoginPage() {
             />
 
             <Input
-              label="Password"
+              label="رمز عبور"
               type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
+              placeholder="رمز عبور خود را وارد کنید"
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
               icon={<Lock className="w-4 h-4" />}
@@ -99,21 +99,21 @@ export default function LoginPage() {
               size="lg"
               loading={loading}
             >
-              Sign In
-              <ArrowRight className="w-4 h-4" />
+              ورود
+              <ArrowLeft className="w-4 h-4" />
             </Button>
           </form>
 
           {/* Demo credentials */}
           <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
-            <p className="text-xs font-semibold text-slate-400 mb-2">Demo Credentials:</p>
+            <p className="text-xs font-semibold text-slate-400 mb-2">اطلاعات آزمایشی:</p>
             <div className="space-y-1">
               <div className="flex justify-between text-xs">
-                <span className="text-slate-500">Admin:</span>
+                <span className="text-slate-500">ادمین:</span>
                 <span className="text-slate-300 font-mono">amirbehradkaz@gmail.com / admin123</span>
               </div>
               <div className="flex justify-between text-xs">
-                <span className="text-slate-500">User:</span>
+                <span className="text-slate-500">کاربر:</span>
                 <span className="text-slate-300 font-mono">sarah@example.com / user123</span>
               </div>
             </div>
@@ -121,12 +121,12 @@ export default function LoginPage() {
 
           {/* Sign up link */}
           <p className="text-center text-sm text-slate-400 mt-6">
-            Don&apos;t have an account?{" "}
+            حساب ندارید؟{" "}
             <Link
               href="/signup"
               className="text-violet-400 font-semibold hover:text-violet-300 transition-colors"
             >
-              Create one
+              ثبت‌نام کنید
             </Link>
           </p>
         </div>

@@ -2,11 +2,9 @@
 
 import { useAuthStore } from "@/store/authStore";
 import { useProductStore } from "@/store/productStore";
-import { useCartStore } from "@/store/cartStore";
 import {
   Package,
   Users,
-  ShoppingCart,
   TrendingUp,
   DollarSign,
   Star,
@@ -14,7 +12,6 @@ import {
   Activity,
 } from "lucide-react";
 import { formatPrice, formatDate } from "@/lib/utils";
-import { mockProducts } from "@/lib/data";
 
 export default function DashboardPage() {
   const { users } = useAuthStore();
@@ -26,31 +23,31 @@ export default function DashboardPage() {
 
   const stats = [
     {
-      label: "Total Products",
+      label: "کل محصولات",
       value: products.length,
       icon: Package,
-      change: "+12%",
+      change: "+۱۲٪",
       color: "violet",
     },
     {
-      label: "Total Users",
+      label: "کل کاربران",
       value: users.length,
       icon: Users,
-      change: "+8%",
+      change: "+۸٪",
       color: "indigo",
     },
     {
-      label: "Est. Revenue",
+      label: "درآمد تخمینی",
       value: formatPrice(totalRevenue),
       icon: DollarSign,
-      change: "+23%",
+      change: "+۲۳٪",
       color: "emerald",
     },
     {
-      label: "Avg. Rating",
+      label: "میانگین امتیاز",
       value: avgRating.toFixed(1),
       icon: Star,
-      change: "+0.2",
+      change: "+۰.۲",
       color: "amber",
     },
   ];
@@ -66,9 +63,9 @@ export default function DashboardPage() {
     <div className="p-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-black text-white">Dashboard Overview</h1>
+        <h1 className="text-3xl font-black text-white">نمای کلی داشبورد</h1>
         <p className="text-slate-400 mt-1">
-          Welcome back! Here&apos;s what&apos;s happening with your store.
+          خوش آمدید! وضعیت فروشگاه شما را ببینید.
         </p>
       </div>
 
@@ -98,12 +95,12 @@ export default function DashboardPage() {
         {/* Recent Products */}
         <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-bold text-white">Recent Products</h2>
+            <h2 className="text-lg font-bold text-white">محصولات اخیر</h2>
             <a
               href="/dashboard/products"
               className="text-sm text-violet-400 hover:text-violet-300 transition-colors"
             >
-              View all
+              مشاهده همه
             </a>
           </div>
           <div className="space-y-3">
@@ -124,11 +121,11 @@ export default function DashboardPage() {
                   <p className="text-sm font-medium text-white truncate">{product.name}</p>
                   <p className="text-xs text-slate-400">{product.category}</p>
                 </div>
-                <div className="text-right flex-shrink-0">
+                <div className="text-left flex-shrink-0">
                   <p className="text-sm font-bold text-violet-400">
                     {formatPrice(product.price)}
                   </p>
-                  <p className="text-xs text-slate-500">Stock: {product.stock}</p>
+                  <p className="text-xs text-slate-500">موجودی: {product.stock}</p>
                 </div>
               </div>
             ))}
@@ -138,15 +135,15 @@ export default function DashboardPage() {
         {/* Low Stock Alert */}
         <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="text-lg font-bold text-white">Low Stock Alert</h2>
+            <h2 className="text-lg font-bold text-white">هشدار موجودی کم</h2>
             <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-medium">
-              {lowStockProducts.length} items
+              {lowStockProducts.length} کالا
             </span>
           </div>
           {lowStockProducts.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-8 text-center">
               <Activity className="w-8 h-8 text-emerald-400 mb-2" />
-              <p className="text-sm text-slate-400">All products are well stocked!</p>
+              <p className="text-sm text-slate-400">همه محصولات موجودی کافی دارند!</p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -169,7 +166,7 @@ export default function DashboardPage() {
                   </div>
                   <div className="flex-shrink-0">
                     <span className="px-2 py-1 rounded-lg bg-amber-500/20 text-amber-400 text-xs font-bold">
-                      {product.stock} left
+                      {product.stock} باقی‌مانده
                     </span>
                   </div>
                 </div>

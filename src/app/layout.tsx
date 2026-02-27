@@ -1,23 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import CartDrawer from "@/components/cart/CartDrawer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "LuxeShop — Premium Products",
+  title: "لوکس‌شاپ — محصولات ویژه",
   description:
-    "Discover a curated collection of premium products. Quality meets style in every item we offer.",
+    "مجموعه‌ای منتخب از بهترین محصولات. کیفیت و سبک در هر کالایی که ارائه می‌دهیم.",
 };
 
 export default function RootLayout({
@@ -26,9 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="fa" dir="rtl" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-white min-h-screen`}
+        className="antialiased bg-slate-950 text-white min-h-screen"
+        style={{ fontFamily: "'Vazirmatn', sans-serif" }}
       >
         <Header />
         {children}

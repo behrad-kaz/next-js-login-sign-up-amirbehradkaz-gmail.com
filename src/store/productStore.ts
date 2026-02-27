@@ -47,10 +47,10 @@ export const useProductStore = create<ProductState>()(
     }),
     {
       name: "product-storage",
-      version: 2,
+      version: 3,
       migrate: (persistedState, version) => {
-        // If version is old (< 2), reset to latest mockProducts
-        if (version < 2) {
+        // If version is old (< 3), reset to latest mockProducts (Persian translation)
+        if (version < 3) {
           return { products: mockProducts };
         }
         return persistedState as ProductState;

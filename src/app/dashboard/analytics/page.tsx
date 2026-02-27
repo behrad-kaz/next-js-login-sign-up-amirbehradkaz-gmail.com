@@ -5,7 +5,6 @@ import { useAuthStore } from "@/store/authStore";
 import { formatPrice } from "@/lib/utils";
 import {
   TrendingUp,
-  TrendingDown,
   BarChart3,
   PieChart,
   Activity,
@@ -48,8 +47,8 @@ export default function AnalyticsPage() {
   return (
     <div className="p-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-black text-white">Analytics</h1>
-        <p className="text-slate-400 mt-1">Store performance overview</p>
+        <h1 className="text-3xl font-black text-white">آمار و تحلیل</h1>
+        <p className="text-slate-400 mt-1">نمای کلی عملکرد فروشگاه</p>
       </div>
 
       {/* KPI Cards */}
@@ -59,40 +58,40 @@ export default function AnalyticsPage() {
             <BarChart3 className="w-5 h-5 text-violet-400" />
             <span className="flex items-center gap-1 text-xs text-emerald-400">
               <TrendingUp className="w-3 h-3" />
-              +23%
+              +۲۳٪
             </span>
           </div>
           <p className="text-3xl font-black text-white">{formatPrice(totalRevenue)}</p>
-          <p className="text-sm text-slate-400 mt-1">Estimated Revenue</p>
+          <p className="text-sm text-slate-400 mt-1">درآمد تخمینی</p>
         </div>
         <div className="p-6 rounded-2xl bg-gradient-to-br from-pink-600/20 to-rose-600/20 border border-pink-500/20">
           <div className="flex items-center justify-between mb-3">
             <Activity className="w-5 h-5 text-pink-400" />
             <span className="flex items-center gap-1 text-xs text-emerald-400">
               <TrendingUp className="w-3 h-3" />
-              +12%
+              +۱۲٪
             </span>
           </div>
           <p className="text-3xl font-black text-white">{products.length}</p>
-          <p className="text-sm text-slate-400 mt-1">Total Products</p>
+          <p className="text-sm text-slate-400 mt-1">کل محصولات</p>
         </div>
         <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-600/20 to-teal-600/20 border border-emerald-500/20">
           <div className="flex items-center justify-between mb-3">
             <PieChart className="w-5 h-5 text-emerald-400" />
             <span className="flex items-center gap-1 text-xs text-emerald-400">
               <TrendingUp className="w-3 h-3" />
-              +8%
+              +۸٪
             </span>
           </div>
           <p className="text-3xl font-black text-white">{users.length}</p>
-          <p className="text-sm text-slate-400 mt-1">Registered Users</p>
+          <p className="text-sm text-slate-400 mt-1">کاربران ثبت‌نام‌شده</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         {/* Category Distribution */}
         <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10">
-          <h2 className="text-lg font-bold text-white mb-6">Products by Category</h2>
+          <h2 className="text-lg font-bold text-white mb-6">محصولات بر اساس دسته‌بندی</h2>
           <div className="space-y-4">
             {Object.entries(categoryStats).map(([cat, stats], i) => (
               <div key={cat}>
@@ -103,7 +102,7 @@ export default function AnalyticsPage() {
                       {formatPrice(stats.revenue)}
                     </span>
                     <span className="text-sm font-bold text-white">
-                      {stats.count} products
+                      {stats.count} محصول
                     </span>
                   </div>
                 </div>
@@ -120,7 +119,7 @@ export default function AnalyticsPage() {
 
         {/* Top Products */}
         <div className="p-6 rounded-2xl bg-slate-900/50 border border-white/10">
-          <h2 className="text-lg font-bold text-white mb-6">Top Products by Reviews</h2>
+          <h2 className="text-lg font-bold text-white mb-6">برترین محصولات بر اساس نظرات</h2>
           <div className="space-y-4">
             {topProducts.map((product, i) => (
               <div key={product.id} className="flex items-center gap-4">
@@ -147,9 +146,9 @@ export default function AnalyticsPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-white truncate">{product.name}</p>
-                  <p className="text-xs text-slate-400">{product.reviewCount} reviews</p>
+                  <p className="text-xs text-slate-400">{product.reviewCount} نظر</p>
                 </div>
-                <div className="text-right flex-shrink-0">
+                <div className="text-left flex-shrink-0">
                   <p className="text-sm font-bold text-violet-400">
                     {formatPrice(product.price)}
                   </p>

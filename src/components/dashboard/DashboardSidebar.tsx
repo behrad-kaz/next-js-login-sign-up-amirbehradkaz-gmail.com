@@ -7,32 +7,31 @@ import {
   Package,
   Users,
   BarChart3,
-  Settings,
   Sparkles,
-  ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   {
     href: "/dashboard",
-    label: "Overview",
+    label: "نمای کلی",
     icon: LayoutDashboard,
     exact: true,
   },
   {
     href: "/dashboard/products",
-    label: "Products",
+    label: "محصولات",
     icon: Package,
   },
   {
     href: "/dashboard/users",
-    label: "Users",
+    label: "کاربران",
     icon: Users,
   },
   {
     href: "/dashboard/analytics",
-    label: "Analytics",
+    label: "آمار و تحلیل",
     icon: BarChart3,
   },
 ];
@@ -46,7 +45,7 @@ export default function DashboardSidebar() {
   };
 
   return (
-    <aside className="w-64 flex-shrink-0 bg-slate-900/50 border-r border-white/10 min-h-screen">
+    <aside className="w-64 flex-shrink-0 bg-slate-900/50 border-l border-white/10 min-h-screen">
       <div className="p-6">
         {/* Brand */}
         <div className="flex items-center gap-2 mb-8">
@@ -54,15 +53,15 @@ export default function DashboardSidebar() {
             <Sparkles className="w-4 h-4 text-white" />
           </div>
           <div>
-            <p className="text-sm font-bold text-white">Admin Panel</p>
-            <p className="text-xs text-slate-500">LuxeShop</p>
+            <p className="text-sm font-bold text-white">پنل مدیریت</p>
+            <p className="text-xs text-slate-500">لوکس‌شاپ</p>
           </div>
         </div>
 
         {/* Navigation */}
         <nav className="space-y-1">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3 px-3">
-            Management
+            مدیریت
           </p>
           {navItems.map((item) => {
             const active = isActive(item.href, item.exact);
@@ -85,7 +84,7 @@ export default function DashboardSidebar() {
                 />
                 {item.label}
                 {active && (
-                  <ChevronRight className="w-3 h-3 ml-auto text-violet-400" />
+                  <ChevronLeft className="w-3 h-3 mr-auto text-violet-400" />
                 )}
               </Link>
             );

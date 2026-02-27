@@ -57,20 +57,20 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+        <div className="absolute top-3 right-3 flex flex-col gap-1.5">
           {discount > 0 && (
             <span className="px-2 py-1 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold rounded-lg shadow-lg">
-              -{discount}%
+              -{discount}٪
             </span>
           )}
           {product.stock <= 10 && product.stock > 0 && (
             <span className="px-2 py-1 bg-amber-500/90 text-white text-xs font-bold rounded-lg">
-              Low Stock
+              موجودی کم
             </span>
           )}
           {product.stock === 0 && (
             <span className="px-2 py-1 bg-red-500/90 text-white text-xs font-bold rounded-lg">
-              Sold Out
+              ناموجود
             </span>
           )}
         </div>
@@ -104,7 +104,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             ))}
           </div>
           <span className="text-xs text-slate-400">
-            {product.rating} ({product.reviewCount})
+            {product.rating} ({product.reviewCount} نظر)
           </span>
         </div>
 
@@ -133,7 +133,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           }`}
         >
           <ShoppingCart className="w-4 h-4" />
-          {addedToCart ? "Added!" : product.stock === 0 ? "Out of Stock" : "Add to Cart"}
+          {addedToCart ? "اضافه شد!" : product.stock === 0 ? "ناموجود" : "افزودن به سبد"}
         </button>
       </div>
     </div>

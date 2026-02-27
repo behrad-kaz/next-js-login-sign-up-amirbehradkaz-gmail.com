@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { X, ShoppingBag, Minus, Plus, Trash2, ArrowRight } from "lucide-react";
+import { X, ShoppingBag, Minus, Plus, Trash2, ArrowLeft } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
 import { formatPrice } from "@/lib/utils";
 import Button from "@/components/ui/Button";
@@ -39,11 +39,11 @@ export default function CartDrawer() {
         />
       )}
 
-      {/* Drawer */}
+      {/* Drawer - from left side for RTL */}
       <div
         ref={drawerRef}
-        className={`fixed top-0 right-0 z-50 h-full w-full max-w-md bg-slate-900 border-l border-white/10 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 left-0 z-50 h-full w-full max-w-md bg-slate-900 border-r border-white/10 shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Header */}
@@ -53,9 +53,9 @@ export default function CartDrawer() {
               <ShoppingBag className="w-4 h-4 text-violet-400" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white">Shopping Cart</h2>
+              <h2 className="text-lg font-bold text-white">سبد خرید</h2>
               <p className="text-xs text-slate-400">
-                {items.length} {items.length === 1 ? "item" : "items"}
+                {items.length} {items.length === 1 ? "کالا" : "کالا"}
               </p>
             </div>
           </div>
@@ -75,13 +75,13 @@ export default function CartDrawer() {
                 <ShoppingBag className="w-10 h-10 text-slate-600" />
               </div>
               <div>
-                <p className="text-lg font-semibold text-slate-300">Your cart is empty</p>
+                <p className="text-lg font-semibold text-slate-300">سبد خرید خالی است</p>
                 <p className="text-sm text-slate-500 mt-1">
-                  Add some products to get started
+                  محصولاتی اضافه کنید تا شروع کنید
                 </p>
               </div>
               <Button onClick={closeCart} variant="outline" size="sm">
-                Continue Shopping
+                ادامه خرید
               </Button>
             </div>
           ) : (
@@ -126,7 +126,7 @@ export default function CartDrawer() {
                     </button>
                     <button
                       onClick={() => removeItem(item.product.id)}
-                      className="ml-auto p-1.5 rounded-lg text-slate-500 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200"
+                      className="mr-auto p-1.5 rounded-lg text-slate-500 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -142,29 +142,29 @@ export default function CartDrawer() {
           <div className="px-6 py-5 border-t border-white/10 space-y-4">
             <div className="space-y-2">
               <div className="flex justify-between text-sm text-slate-400">
-                <span>Subtotal</span>
+                <span>جمع کل</span>
                 <span>{formatPrice(total)}</span>
               </div>
               <div className="flex justify-between text-sm text-slate-400">
-                <span>Shipping</span>
-                <span className="text-emerald-400">Free</span>
+                <span>ارسال</span>
+                <span className="text-emerald-400">رایگان</span>
               </div>
               <div className="flex justify-between text-base font-bold text-white pt-2 border-t border-white/10">
-                <span>Total</span>
+                <span>مبلغ نهایی</span>
                 <span className="text-violet-400">{formatPrice(total)}</span>
               </div>
             </div>
             <Link href="/cart" onClick={closeCart}>
               <Button className="w-full" size="lg">
-                Checkout
-                <ArrowRight className="w-4 h-4" />
+                تسویه حساب
+                <ArrowLeft className="w-4 h-4" />
               </Button>
             </Link>
             <button
               onClick={clearCart}
               className="w-full text-sm text-slate-500 hover:text-red-400 transition-colors duration-200"
             >
-              Clear cart
+              پاک کردن سبد
             </button>
           </div>
         )}

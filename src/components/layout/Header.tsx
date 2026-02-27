@@ -32,8 +32,8 @@ export default function Header() {
   };
 
   const navLinks = [
-    { href: "/", label: "Shop" },
-    { href: "/cart", label: "Cart" },
+    { href: "/", label: "فروشگاه" },
+    { href: "/cart", label: "سبد خرید" },
   ];
 
   return (
@@ -46,7 +46,7 @@ export default function Header() {
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
-              LuxeShop
+              لوکس‌شاپ
             </span>
           </Link>
 
@@ -77,7 +77,7 @@ export default function Header() {
                 )}
               >
                 <LayoutDashboard className="w-4 h-4" />
-                Dashboard
+                داشبورد
               </Link>
             )}
           </nav>
@@ -88,12 +88,12 @@ export default function Header() {
             <button
               onClick={openCart}
               className="relative p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-200"
-              aria-label="Open cart"
+              aria-label="باز کردن سبد خرید"
             >
               <ShoppingCart className="w-5 h-5" />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-violet-500 to-indigo-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
-                  {totalItems > 9 ? "9+" : totalItems}
+                <span className="absolute -top-1 -left-1 w-5 h-5 bg-gradient-to-r from-violet-500 to-indigo-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
+                  {totalItems > 9 ? "۹+" : totalItems}
                 </span>
               )}
             </button>
@@ -112,7 +112,7 @@ export default function Header() {
                 <button
                   onClick={handleLogout}
                   className="p-2 rounded-xl text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200"
-                  title="Logout"
+                  title="خروج"
                 >
                   <LogOut className="w-4 h-4" />
                 </button>
@@ -123,13 +123,13 @@ export default function Header() {
                   href="/login"
                   className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
                 >
-                  Login
+                  ورود
                 </Link>
                 <Link
                   href="/signup"
                   className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl hover:from-violet-700 hover:to-indigo-700 transition-all duration-200 shadow-lg shadow-violet-500/25"
                 >
-                  Sign Up
+                  ثبت‌نام
                 </Link>
               </div>
             )}
@@ -177,7 +177,7 @@ export default function Header() {
                 )}
               >
                 <LayoutDashboard className="w-4 h-4" />
-                Dashboard
+                داشبورد
               </Link>
             )}
             <div className="pt-2 border-t border-white/10">
@@ -197,7 +197,7 @@ export default function Header() {
                     className="flex items-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 transition-all duration-200"
                   >
                     <LogOut className="w-4 h-4" />
-                    Logout
+                    خروج
                   </button>
                 </div>
               ) : (
@@ -208,14 +208,14 @@ export default function Header() {
                     className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200"
                   >
                     <User className="w-4 h-4" />
-                    Login
+                    ورود
                   </Link>
                   <Link
                     href="/signup"
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-violet-600 to-indigo-600 text-white transition-all duration-200"
                   >
-                    Sign Up
+                    ثبت‌نام
                   </Link>
                 </div>
               )}

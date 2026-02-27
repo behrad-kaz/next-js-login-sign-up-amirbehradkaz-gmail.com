@@ -10,24 +10,24 @@ import { cn } from "@/lib/utils";
 const PRODUCTS_PER_PAGE = 12;
 
 const sortOptions = [
-  { value: "featured", label: "Featured" },
-  { value: "price-asc", label: "Price: Low to High" },
-  { value: "price-desc", label: "Price: High to Low" },
-  { value: "rating", label: "Top Rated" },
-  { value: "newest", label: "Newest" },
+  { value: "featured", label: "پیشنهادی" },
+  { value: "price-asc", label: "ارزان‌ترین" },
+  { value: "price-desc", label: "گران‌ترین" },
+  { value: "rating", label: "بهترین امتیاز" },
+  { value: "newest", label: "جدیدترین" },
 ];
 
 const features = [
-  { icon: Truck, title: "Free Shipping", desc: "On orders over $50" },
-  { icon: Shield, title: "Secure Payment", desc: "100% protected" },
-  { icon: Zap, title: "Fast Delivery", desc: "2-3 business days" },
-  { icon: TrendingUp, title: "Best Prices", desc: "Price match guarantee" },
+  { icon: Truck, title: "ارسال رایگان", desc: "برای خریدهای بالای ۵۰ دلار" },
+  { icon: Shield, title: "پرداخت امن", desc: "۱۰۰٪ محافظت‌شده" },
+  { icon: Zap, title: "تحویل سریع", desc: "۲ تا ۳ روز کاری" },
+  { icon: TrendingUp, title: "بهترین قیمت", desc: "تضمین تطابق قیمت" },
 ];
 
 export default function HomePage() {
   const { products } = useProductStore();
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("همه");
   const [sortBy, setSortBy] = useState("featured");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -45,7 +45,7 @@ export default function HomePage() {
       );
     }
 
-    if (selectedCategory !== "All") {
+    if (selectedCategory !== "همه") {
       result = result.filter((p) => p.category === selectedCategory);
     }
 
@@ -124,38 +124,36 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-violet-950/30 to-slate-900 py-20 px-4">
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
+          <div className="absolute -top-40 -left-40 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-medium mb-6">
             <Zap className="w-4 h-4" />
-            New arrivals every week
+            محصولات جدید هر هفته
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            Discover{" "}
+            کشف کنید{" "}
             <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-              Premium
-            </span>{" "}
-            Products
+              محصولات ویژه
+            </span>
           </h1>
           <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Curated collection of the finest products. Quality meets style in every item
-            we offer.
+            مجموعه‌ای منتخب از بهترین محصولات. کیفیت و سبک در هر کالایی که ارائه می‌دهیم.
           </p>
 
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 z-10" />
+              <Search className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 z-10" />
               <input
                 type="text"
-                placeholder="Search products, categories, brands..."
+                placeholder="جستجوی محصولات، دسته‌بندی‌ها، برندها..."
                 value={search}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full pl-12 pr-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-base focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent backdrop-blur-sm transition-all duration-200"
+                className="w-full pr-12 pl-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-base focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent backdrop-blur-sm transition-all duration-200"
               />
             </div>
           </div>
@@ -207,14 +205,15 @@ export default function HomePage() {
           <div className="flex items-center justify-between gap-4">
             <p className="text-sm text-slate-400">
               <span className="text-white font-semibold">{filteredProducts.length}</span>{" "}
-              products found
+              محصول یافت شد
               {totalPages > 1 && (
-                <span className="ml-2 text-slate-500">
-                  · Page {currentPage} of {totalPages}
+                <span className="mr-2 text-slate-500">
+                  · صفحه {currentPage} از {totalPages}
                 </span>
               )}
             </p>
             <div className="flex items-center gap-3">
+              <SlidersHorizontal className="w-4 h-4 text-slate-400" />
               <select
                 value={sortBy}
                 onChange={(e) => handleSortChange(e.target.value)}
@@ -237,14 +236,14 @@ export default function HomePage() {
               <Search className="w-10 h-10 text-slate-600" />
             </div>
             <div className="text-center">
-              <p className="text-xl font-semibold text-slate-300">No products found</p>
-              <p className="text-slate-500 mt-1">Try adjusting your search or filters</p>
+              <p className="text-xl font-semibold text-slate-300">محصولی یافت نشد</p>
+              <p className="text-slate-500 mt-1">جستجو یا فیلترها را تغییر دهید</p>
             </div>
             <button
-              onClick={() => { handleSearchChange(""); handleCategoryChange("All"); }}
+              onClick={() => { handleSearchChange(""); handleCategoryChange("همه"); }}
               className="px-6 py-2.5 rounded-xl bg-violet-500/20 text-violet-400 text-sm font-medium hover:bg-violet-500/30 transition-all duration-200"
             >
-              Clear filters
+              پاک کردن فیلترها
             </button>
           </div>
         ) : (
@@ -269,8 +268,8 @@ export default function HomePage() {
                       : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10"
                   )}
                 >
-                  <ChevronLeft className="w-4 h-4" />
-                  Prev
+                  <ChevronRight className="w-4 h-4" />
+                  قبلی
                 </button>
 
                 {/* Page Numbers */}
@@ -308,8 +307,8 @@ export default function HomePage() {
                       : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10"
                   )}
                 >
-                  Next
-                  <ChevronRight className="w-4 h-4" />
+                  بعدی
+                  <ChevronLeft className="w-4 h-4" />
                 </button>
               </div>
             )}
@@ -317,9 +316,9 @@ export default function HomePage() {
             {/* Pagination Info */}
             {totalPages > 1 && (
               <p className="text-center text-sm text-slate-500 mt-4">
-                Showing {(currentPage - 1) * PRODUCTS_PER_PAGE + 1}–
-                {Math.min(currentPage * PRODUCTS_PER_PAGE, filteredProducts.length)} of{" "}
-                {filteredProducts.length} products
+                نمایش {(currentPage - 1) * PRODUCTS_PER_PAGE + 1}–
+                {Math.min(currentPage * PRODUCTS_PER_PAGE, filteredProducts.length)} از{" "}
+                {filteredProducts.length} محصول
               </p>
             )}
           </>
