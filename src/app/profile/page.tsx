@@ -32,9 +32,13 @@ function ProfileContent() {
   const tab = searchParams.get("tab") || "profile";
   
   const { currentUser, isAuthenticated, updateUser } = useAuthStore();
-  const { items: wishlistItems, removeItem: removeFromWishlist } = useWishlistStore();
-  const { orders } = useOrderStore();
+  const { getUserWishlist, removeItem: removeFromWishlist } = useWishlistStore();
+  const { getOrders } = useOrderStore();
   const { addItem: addToCart, openCart } = useCartStore();
+
+  // Get user-specific data
+  const userWishlist = currentUser ? getUserWishlist(currentUser.id) : [];
+  const userOrders = currentUser ? getOrders(currentUser.id) : [];
   
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState(tab);
@@ -196,9 +200,9 @@ function ProfileContent() {
                 >
                   <Heart className="w-5 h-5" />
                   <span className="flex-1 text-right">علاقه‌مندی‌ها</span>
-                  {wishlistItems.length > 0 && (
+                  {userWishlist.length > 0 && (
                     <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded-full">
-                      {wishlistItems.length}
+                      {userWishlist.length}
                     </span>
                   )}
                 </button>
@@ -212,9 +216,9 @@ function ProfileContent() {
                 >
                   <Package className="w-5 h-5" />
                   <span className="flex-1 text-right">سفارشات</span>
-                  {orders.length > 0 && (
+                  {userOrders.length > 0 && (
                     <span className="px-2 py-0.5 bg-emerald-500/20 text-emerald-400 text-xs rounded-full">
-                      {orders.length}
+                      {userOrders.length}
                     </span>
                   )}
                 </button>
@@ -286,7 +290,7 @@ function ProfileContent() {
             {activeTab === "likes" && (
               <div className="bg-slate-900/50 border border-white/10 rounded-2xl p-6">
                 <h3 className="text-xl font-bold text-white mb-6">لیست علاقه‌مندی‌ها</h3>
-                {wishlistItems.length === 0 ? (
+                {userWishlist.length === 0 ? (
                   <div className="text-center py-12">
                     <Heart className="w-16 h-16 text-slate-600 mx-auto mb-4" />
                     <p className="text-lg text-slate-400">هنوز محصولی را لایک نکرده‌اید</p>
@@ -296,7 +300,7 @@ function ProfileContent() {
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {wishlistItems.map((product) => (
+                    {userWishlist.map((product) => (
                       <div
                         key={product.id}
                         className="flex gap-4 p-4 bg-slate-800/50 border border-white/10 rounded-xl"
@@ -324,7 +328,7 @@ function ProfileContent() {
                               افزودن به سبد
                             </button>
                             <button
-                              onClick={() => removeFromWishlist(product.id)}
+                              onClick={() => currentUser && removeFromWishlist(currentUser.id, product.id)}
                               className="p-1.5 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -342,7 +346,7 @@ function ProfileContent() {
             {activeTab === "orders" && (
               <div className="bg-slate-900/50 border border-white/10 rounded-2xl p-6">
                 <h3 className="text-xl font-bold text-white mb-6">تاریخچه سفارشات</h3>
-                {orders.length === 0 ? (
+                {userOrders.length === 0 ? (
                   <div className="text-center py-12">
                     <Package className="w-16 h-16 text-slate-600 mx-auto mb-4" />
                     <p className="text-lg text-slate-400">هنوز سفارشی ندارید</p>
@@ -352,7 +356,7 @@ function ProfileContent() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {orders.map((order) => (
+                    {userOrders.map((order) => (
                       <div
                         key={order.id}
                         className="p-5 bg-slate-800/50 border border-white/10 rounded-xl"

@@ -27,7 +27,7 @@ export default function Header() {
   const router = useRouter();
   const { currentUser, isAuthenticated, logout } = useAuthStore();
   const { getTotalItems, openCart } = useCartStore();
-  const { items: wishlistItems } = useWishlistStore();
+  const { getUserWishlist, getUserWishlistCount } = useWishlistStore();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -191,9 +191,9 @@ export default function Header() {
                       >
                         <Heart className="w-4 h-4" />
                         <span className="flex-1">لیست علاقه‌مندی‌ها</span>
-                        {wishlistItems.length > 0 && (
+                        {currentUser && getUserWishlistCount(currentUser.id) > 0 && (
                           <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded-full">
-                            {wishlistItems.length}
+                            {getUserWishlistCount(currentUser.id)}
                           </span>
                         )}
                       </Link>
@@ -306,9 +306,9 @@ export default function Header() {
                 >
                   <Heart className="w-4 h-4" />
                   <span className="flex-1">علاقه‌مندی‌ها</span>
-                  {wishlistItems.length > 0 && (
+                  {currentUser && getUserWishlistCount(currentUser.id) > 0 && (
                     <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded-full">
-                      {wishlistItems.length}
+                      {getUserWishlistCount(currentUser.id)}
                     </span>
                   )}
                 </Link>

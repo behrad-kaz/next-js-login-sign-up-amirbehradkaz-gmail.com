@@ -15,12 +15,14 @@ import {
 } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
 import { useOrderStore } from "@/store/orderStore";
+import { useAuthStore } from "@/store/authStore";
 import { formatPrice } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
   const { addOrder } = useOrderStore();
+  const { currentUser } = useAuthStore();
   const [coupon, setCoupon] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
@@ -51,7 +53,11 @@ export default function CartPage() {
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1500));
     // Save order before clearing cart
-    addOrder(validItems, total);
+    if (currentUser) {
+      addOrder(currentUser.id, validItems, total);
+    } else {
+      addOrder("guest", validItems, total);
+    }
     setLoading(false);
     setCheckoutSuccess(true);
     clearCart();

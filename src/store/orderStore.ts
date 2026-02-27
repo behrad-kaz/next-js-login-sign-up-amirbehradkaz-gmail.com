@@ -6,8 +6,8 @@ import type { Order, CartItem } from "@/types";
 
 interface OrderState {
   orders: Order[];
-  addOrder: (items: CartItem[], total: number) => void;
-  getOrders: () => Order[];
+  addOrder: (userId: string, items: CartItem[], total: number) => void;
+  getOrders: (userId: string) => Order[];
   getOrderById: (orderId: string) => Order | undefined;
 }
 
@@ -16,10 +16,10 @@ export const useOrderStore = create<OrderState>()(
     (set, get) => ({
       orders: [],
 
-      addOrder: (items, total) => {
+      addOrder: (userId, items, total) => {
         const newOrder: Order = {
           id: `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          userId: "", // Will be set when we have user auth
+          userId: userId,
           items: items,
           total: total,
           status: "pending",
@@ -30,8 +30,8 @@ export const useOrderStore = create<OrderState>()(
         }));
       },
 
-      getOrders: () => {
-        return get().orders;
+      getOrders: (userId) => {
+        return get().orders.filter((order) => order.userId === userId);
       },
 
       getOrderById: (orderId) => {

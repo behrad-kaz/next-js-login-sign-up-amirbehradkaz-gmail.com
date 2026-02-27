@@ -9,6 +9,7 @@ import {
   BarChart3,
   Sparkles,
   ChevronLeft,
+  MessageSquare,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -33,6 +34,11 @@ const navItems = [
     href: "/dashboard/analytics",
     label: "آمار و تحلیل",
     icon: BarChart3,
+  },
+  {
+    href: "/dashboard/reviews",
+    label: "نظرات",
+    icon: MessageSquare,
   },
 ];
 

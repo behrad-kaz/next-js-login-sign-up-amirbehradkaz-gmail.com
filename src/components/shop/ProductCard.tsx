@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Star, ShoppingCart, Heart, Eye } from "lucide-react";
 import { useState } from "react";
 import type { Product } from "@/types";
 import { useCartStore } from "@/store/cartStore";
 import { useWishlistStore } from "@/store/wishlistStore";
+import { useAuthStore } from "@/store/authStore";
 import { formatPrice } from "@/lib/utils";
 import Badge from "@/components/ui/Badge";
 
@@ -15,17 +17,15 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addItem, openCart } = useCartStore();
-  const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist } = useWishlistStore();
+  const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist, toggleItem } = useWishlistStore();
+  const { currentUser } = useAuthStore();
   const [addedToCart, setAddedToCart] = useState(false);
 
-  const isLiked = isInWishlist(product.id);
+  const isLiked = currentUser ? isInWishlist(currentUser.id, product.id) : false;
 
   const handleToggleWishlist = () => {
-    if (isLiked) {
-      removeFromWishlist(product.id);
-    } else {
-      addToWishlist(product);
-    }
+    if (!currentUser) return;
+    toggleItem(currentUser.id, product);
   };
 
   const handleAddToCart = () => {
@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     : 0;
 
   return (
-    <div className="group relative bg-slate-800/50 border border-white/10 rounded-2xl overflow-hidden hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300">
+    <Link href={`/product/${product.id}`} className="group relative bg-slate-800/50 border border-white/10 rounded-2xl overflow-hidden hover:border-violet-500/50 hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 block">
       {/* Image Container */}
       <div className="relative aspect-square overflow-hidden bg-slate-700/50">
         <Image
@@ -56,11 +56,11 @@ export default function ProductCard({ product }: ProductCardProps) {
             onClick={handleToggleWishlist}
             className={`w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 ${
               isLiked
-                ? "bg-red-500 text-white"
+                ? " text-white"
                 : "bg-white/20 text-white hover:bg-white/30"
             }`}
           >
-            <Heart className={`w-4 h-4 ${isLiked ? "fill-current" : ""}`} />
+            <Heart className={`w-4 h-4 ${isLiked ? "fill-red-500 text-red-500" : ""}`} />
           </button>
           <button className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200">
             <Eye className="w-4 h-4" />
@@ -147,6 +147,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           {addedToCart ? "اضافه شد!" : product.stock === 0 ? "ناموجود" : "افزودن به سبد"}
         </button>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -27,6 +27,7 @@ const emptyForm = {
   originalPrice: "",
   category: "الکترونیک",
   image: "",
+  images: "",
   stock: "",
   rating: "4.5",
   reviewCount: "0",
@@ -64,6 +65,7 @@ export default function ProductsPage() {
       originalPrice: String(product.originalPrice || ""),
       category: product.category,
       image: product.image,
+      images: product.images?.join("\n") || "",
       stock: String(product.stock),
       rating: String(product.rating),
       reviewCount: String(product.reviewCount),
@@ -82,6 +84,7 @@ export default function ProductsPage() {
       image:
         form.image ||
         "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
+      images: form.images ? form.images.split("\n").map((url) => url.trim()).filter(Boolean) : undefined,
       stock: parseInt(form.stock),
       rating: parseFloat(form.rating),
       reviewCount: parseInt(form.reviewCount),
@@ -354,7 +357,18 @@ export default function ProductsPage() {
                     label="آدرس تصویر"
                     value={form.image}
                     onChange={(e) => setForm({ ...form, image: e.target.value })}
-                    placeholder="https://images.unsplash.com/..."
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    تصاویر اضافی (یک آدرس در هر خط)
+                  </label>
+                  <textarea
+                    value={form.images}
+                    onChange={(e) => setForm({ ...form, images: e.target.value })}
+                    placeholder="https://example.com/image1.jpg
+https://example.com/image2.jpg"
+                    className="w-full px-4 py-3 bg-slate-800 border border-white/10 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 h-24 resize-none"
                   />
                 </div>
                 <div className="sm:col-span-2">
