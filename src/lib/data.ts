@@ -8,8 +8,8 @@ export const mockProducts: Product[] = [
     name: "هدفون بی‌سیم پریمیوم",
     description:
       "صدای کریستالی با هدفون بی‌سیم پریمیوم ما تجربه کنید. دارای حذف نویز فعال، باتری ۳۰ ساعته و کوشن‌های گوشی فوق‌العاده راحت.",
-    price: 299.99,
-    originalPrice: 399.99,
+    price: 15000000,
+    originalPrice: 20000000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
@@ -24,8 +24,8 @@ export const mockProducts: Product[] = [
     name: "ساعت چرمی مینیمالیست",
     description:
       "ساعت ظریف ساخته‌شده از چرم اصل ایتالیایی. مقاوم در برابر آب تا ۵۰ متر با شیشه کریستال یاقوت.",
-    price: 189.99,
-    originalPrice: 249.99,
+    price: 9500000,
+    originalPrice: 12500000,
     category: "اکسسوری",
     image:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
@@ -40,8 +40,8 @@ export const mockProducts: Product[] = [
     name: "ردیاب هوشمند تناسب اندام",
     description:
       "معیارهای سلامتی خود را با دقت دنبال کنید. مانیتور ضربان قلب، ردیابی خواب، GPS و باتری ۷ روزه.",
-    price: 149.99,
-    originalPrice: 199.99,
+    price: 7500000,
+    originalPrice: 10000000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&q=80",
@@ -56,8 +56,8 @@ export const mockProducts: Product[] = [
     name: "قهوه‌ساز حرفه‌ای",
     description:
       "قهوه با کیفیت کافه در خانه دم کنید. تنظیمات قابل برنامه‌ریزی، آسیاب داخلی و کارافه حرارتی.",
-    price: 249.99,
-    originalPrice: 329.99,
+    price: 12500000,
+    originalPrice: 16500000,
     category: "خانه و آشپزخانه",
     image:
       "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80",
@@ -72,8 +72,8 @@ export const mockProducts: Product[] = [
     name: "کفش دویدن فوق‌سبک",
     description:
       "طراحی‌شده برای عملکرد. صفحه فیبر کربن، فوم واکنش‌پذیر و رویه مش تنفسی برای حداکثر سرعت.",
-    price: 179.99,
-    originalPrice: 229.99,
+    price: 9000000,
+    originalPrice: 11500000,
     category: "ورزشی",
     image:
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
@@ -88,8 +88,8 @@ export const mockProducts: Product[] = [
     name: "اسپیکر بلوتوث قابل حمل",
     description:
       "صدای ۳۶۰ درجه در طراحی فشرده. ضدآب IPX7، ۲۴ ساعت پخش و میکروفون داخلی.",
-    price: 89.99,
-    originalPrice: 119.99,
+    price: 4500000,
+    originalPrice: 6000000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80",
@@ -104,8 +104,8 @@ export const mockProducts: Product[] = [
     name: "ست مراقبت پوست ارگانیک",
     description:
       "روتین کامل مراقبت پوست با ۱۰۰٪ مواد ارگانیک. شامل پاک‌کننده، تونر، سرم و مرطوب‌کننده.",
-    price: 129.99,
-    originalPrice: 169.99,
+    price: 6500000,
+    originalPrice: 8500000,
     category: "زیبایی",
     image:
       "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=500&q=80",
@@ -120,8 +120,8 @@ export const mockProducts: Product[] = [
     name: "صندلی اداری ارگونومیک",
     description:
       "طراحی‌شده برای راحتی تمام روز. پشتیبانی کمری، دسته‌های قابل تنظیم، پشتی مش تنفسی و ۵ سال گارانتی.",
-    price: 449.99,
-    originalPrice: 599.99,
+    price: 22500000,
+    originalPrice: 30000000,
     category: "مبلمان",
     image:
       "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=500&q=80",
@@ -136,8 +136,8 @@ export const mockProducts: Product[] = [
     name: "مانیتور ۴K Ultra HD",
     description:
       "نمایشگر ۲۷ اینچ ۴K با پنل IPS، نرخ تازه‌سازی ۱۴۴Hz، HDR400 و اتصال USB-C. ایده‌آل برای متخصصان خلاق.",
-    price: 549.99,
-    originalPrice: 699.99,
+    price: 27500000,
+    originalPrice: 35000000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&q=80",
@@ -152,8 +152,8 @@ export const mockProducts: Product[] = [
     name: "کیبورد مکانیکال",
     description:
       "تجربه تایپ لمسی با سوئیچ‌های Cherry MX. نور پس‌زمینه RGB، قاب آلومینیومی و کابل USB-C جداشدنی.",
-    price: 139.99,
-    originalPrice: 179.99,
+    price: 7000000,
+    originalPrice: 9000000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&q=80",
@@ -168,8 +168,8 @@ export const mockProducts: Product[] = [
     name: "مت یوگا پریمیوم",
     description:
       "مت یوگای ضخیم ۶ میلی‌متری ضدلغزش با خطوط تراز. ماده TPE سازگار با محیط زیست، بند حمل شامل.",
-    price: 59.99,
-    originalPrice: 79.99,
+    price: 3000000,
+    originalPrice: 4000000,
     category: "ورزشی",
     image:
       "https://images.unsplash.com/photo-1601925228008-f5e4c5e5e5e5?w=500&q=80",
@@ -184,8 +184,8 @@ export const mockProducts: Product[] = [
     name: "بطری آب استیل ضدزنگ",
     description:
       "عایق خلاء دو جداره. نوشیدنی‌ها را ۲۴ ساعت سرد یا ۱۲ ساعت گرم نگه می‌دارد. بدون BPA، درب ضدنشت، ظرفیت ۹۵۰ میلی‌لیتر.",
-    price: 34.99,
-    originalPrice: 49.99,
+    price: 1750000,
+    originalPrice: 2500000,
     category: "ورزشی",
     image:
       "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&q=80",
@@ -200,8 +200,8 @@ export const mockProducts: Product[] = [
     name: "مجموعه عطر لوکس",
     description:
       "ست ۳ عطر پریمیوم الهام‌گرفته از مقاصد اگزوتیک. ماندگاری ۱۲ ساعته با بطری‌های شیشه‌ای ظریف.",
-    price: 199.99,
-    originalPrice: 269.99,
+    price: 10000000,
+    originalPrice: 13500000,
     category: "زیبایی",
     image:
       "https://images.unsplash.com/photo-1541643600914-78b084683702?w=500&q=80",
@@ -216,8 +216,8 @@ export const mockProducts: Product[] = [
     name: "ست ظروف سرامیکی",
     description:
       "ست ۱۰ تکه ظروف سرامیکی نچسب. بدون PFOA، مقاوم در فر تا ۲۳۰ درجه، ماشین ظرفشویی و القایی.",
-    price: 189.99,
-    originalPrice: 249.99,
+    price: 9500000,
+    originalPrice: 12500000,
     category: "خانه و آشپزخانه",
     image:
       "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80",
@@ -232,8 +232,8 @@ export const mockProducts: Product[] = [
     name: "پد شارژ بی‌سیم",
     description:
       "شارژر بی‌سیم سریع ۱۵ واتی سازگار با تمام دستگاه‌های Qi. طراحی نازک، نشانگر LED و سطح ضدلغزش.",
-    price: 39.99,
-    originalPrice: 59.99,
+    price: 2000000,
+    originalPrice: 3000000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&q=80",
@@ -248,8 +248,8 @@ export const mockProducts: Product[] = [
     name: "کیف چرمی دوشی",
     description:
       "کیف دوشی چرم اصل دست‌دوز. چندین جیب، بند قابل تنظیم و یراق‌آلات طلایی.",
-    price: 159.99,
-    originalPrice: 219.99,
+    price: 8000000,
+    originalPrice: 11000000,
     category: "اکسسوری",
     image:
       "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80",
@@ -264,8 +264,8 @@ export const mockProducts: Product[] = [
     name: "هاب خانه هوشمند",
     description:
       "تمام دستگاه‌های هوشمند خود را از یک جا کنترل کنید. سازگار با Alexa، Google Home و Apple HomeKit. کنترل صوتی.",
-    price: 119.99,
-    originalPrice: 159.99,
+    price: 6000000,
+    originalPrice: 8000000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80",
@@ -280,8 +280,8 @@ export const mockProducts: Product[] = [
     name: "جاکاغذی بامبو",
     description:
       "جاکاغذی بامبو سازگار با محیط زیست با ۶ بخش. فضای کاری شما را مرتب و شیک نگه می‌دارد. رنگ طبیعی.",
-    price: 44.99,
-    originalPrice: 64.99,
+    price: 2250000,
+    originalPrice: 3200000,
     category: "مبلمان",
     image:
       "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=500&q=80",
@@ -296,8 +296,8 @@ export const mockProducts: Product[] = [
     name: "سرم ویتامین C",
     description:
       "سرم روشن‌کننده ۲۰٪ ویتامین C با هیالورونیک اسید و ویتامین E. لک‌های تیره را کاهش می‌دهد و تولید کلاژن را تقویت می‌کند.",
-    price: 49.99,
-    originalPrice: 69.99,
+    price: 2500000,
+    originalPrice: 3500000,
     category: "زیبایی",
     image:
       "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&q=80",
@@ -312,8 +312,8 @@ export const mockProducts: Product[] = [
     name: "ست کش مقاومتی",
     description:
       "ست ۵ کش مقاومتی با سطوح کشش مختلف. شامل لنگر در، دستگیره و بند مچ پا. ایده‌آل برای تمرین در خانه.",
-    price: 29.99,
-    originalPrice: 44.99,
+    price: 1500000,
+    originalPrice: 2250000,
     category: "ورزشی",
     image:
       "https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=500&q=80",
@@ -328,8 +328,8 @@ export const mockProducts: Product[] = [
     name: "ایربادز حذف نویز",
     description:
       "ایربادز بی‌سیم واقعی با حذف نویز فعال. باتری ۸ ساعته + کیس شارژ ۲۴ ساعته، مقاوم در برابر آب IPX5.",
-    price: 179.99,
-    originalPrice: 229.99,
+    price: 9000000,
+    originalPrice: 11500000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&q=80",
@@ -344,8 +344,8 @@ export const mockProducts: Product[] = [
     name: "ست شمع معطر",
     description:
       "ست ۴ شمع موم سویا لوکس با عطرهای روغن اساسی. هر کدام ۴۰ ساعت می‌سوزند. بسته‌بندی هدیه ظریف.",
-    price: 54.99,
-    originalPrice: 74.99,
+    price: 2750000,
+    originalPrice: 3750000,
     category: "خانه و آشپزخانه",
     image:
       "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=500&q=80",
@@ -360,8 +360,8 @@ export const mockProducts: Product[] = [
     name: "عینک آفتابی پلاریزه",
     description:
       "لنزهای پلاریزه UV400 با قاب تیتانیوم سبک. کاهش تابش و خستگی چشم. شامل جلد سخت و دستمال تمیزکننده.",
-    price: 119.99,
-    originalPrice: 159.99,
+    price: 6000000,
+    originalPrice: 8000000,
     category: "اکسسوری",
     image:
       "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80",
@@ -376,8 +376,8 @@ export const mockProducts: Product[] = [
     name: "میز ایستاده برقی",
     description:
       "میز ایستاده برقی با ارتفاع قابل تنظیم. موتور دوگانه، حافظه پیش‌تنظیم، فناوری ضدتصادم. سطح ۱۴۰x۷۰ سانتی‌متر.",
-    price: 699.99,
-    originalPrice: 899.99,
+    price: 35000000,
+    originalPrice: 45000000,
     category: "مبلمان",
     image:
       "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=500&q=80",
@@ -392,8 +392,8 @@ export const mockProducts: Product[] = [
     name: "پودر پروتئین ترکیبی",
     description:
       "۲۵ گرم پروتئین در هر وعده با تمام آمینواسیدهای ضروری. ترکیب وی ایزوله، کم‌قند، در ۵ طعم. ظرف ۹۰۰ گرمی.",
-    price: 54.99,
-    originalPrice: 74.99,
+    price: 2750000,
+    originalPrice: 3750000,
     category: "ورزشی",
     image:
       "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=500&q=80",
@@ -408,8 +408,8 @@ export const mockProducts: Product[] = [
     name: "ست روکش بالش ابریشمی",
     description:
       "روکش بالش ۱۰۰٪ ابریشم توت خالص. کاهش شکستگی مو و چروک پوست. هیپوآلرژنیک، ست ۲ عددی سایز کوئین.",
-    price: 79.99,
-    originalPrice: 109.99,
+    price: 4000000,
+    originalPrice: 5500000,
     category: "خانه و آشپزخانه",
     image:
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&q=80",
@@ -424,8 +424,8 @@ export const mockProducts: Product[] = [
     name: "ترموستات هوشمند",
     description:
       "ترموستات مجهز به هوش مصنوعی که برنامه شما را یاد می‌گیرد. حالت صرفه‌جویی در انرژی، کنترل از راه دور با اپ.",
-    price: 199.99,
-    originalPrice: 249.99,
+    price: 10000000,
+    originalPrice: 12500000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80",
@@ -440,8 +440,8 @@ export const mockProducts: Product[] = [
     name: "کرم شب رتینول",
     description:
       "کرم شب ضدپیری پیشرفته با ۰.۵٪ رتینول و پپتیدها. خطوط ریز و چروک را در طول خواب کاهش می‌دهد.",
-    price: 69.99,
-    originalPrice: 94.99,
+    price: 3500000,
+    originalPrice: 4750000,
     category: "زیبایی",
     image:
       "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&q=80",
@@ -456,8 +456,8 @@ export const mockProducts: Product[] = [
     name: "کیف پول تیتانیومی",
     description:
       "کیف پول نگهدارنده کارت تیتانیومی فوق‌نازک. مسدودکننده RFID، تا ۱۲ کارت، وزن فقط ۲۸ گرم. طراحی مینیمالیست.",
-    price: 89.99,
-    originalPrice: 119.99,
+    price: 4500000,
+    originalPrice: 6000000,
     category: "اکسسوری",
     image:
       "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500&q=80",
@@ -472,8 +472,8 @@ export const mockProducts: Product[] = [
     name: "ست دمبل قابل تنظیم",
     description:
       "دمبل‌های قابل تنظیم صرفه‌جو در فضا از ۲.۵ تا ۲۴ کیلوگرم. سیستم تغییر سریع، جایگزین ۱۵ ست وزنه.",
-    price: 349.99,
-    originalPrice: 449.99,
+    price: 17500000,
+    originalPrice: 22500000,
     category: "ورزشی",
     image:
       "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80",
@@ -488,8 +488,8 @@ export const mockProducts: Product[] = [
     name: "دستگاه تصفیه هوا HEPA",
     description:
       "تصفیه‌کننده هوای HEPA واقعی با پوشش ۴۶ متر مربع. ۹۹.۹۷٪ ذرات، آلرژن‌ها و بوها را حذف می‌کند. حالت خواب فوق‌ساکت.",
-    price: 179.99,
-    originalPrice: 239.99,
+    price: 9000000,
+    originalPrice: 12000000,
     category: "خانه و آشپزخانه",
     image:
       "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&q=80",
@@ -504,8 +504,8 @@ export const mockProducts: Product[] = [
     name: "پلیور کشمیر",
     description:
       "پلیور ۱۰۰٪ کشمیر خالص با آستین و دامن دنده‌ای. فوق‌العاده نرم و گرم. در ۸ رنگ کلاسیک موجود است.",
-    price: 219.99,
-    originalPrice: 299.99,
+    price: 11000000,
+    originalPrice: 15000000,
     category: "اکسسوری",
     image:
       "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&q=80",
@@ -520,8 +520,8 @@ export const mockProducts: Product[] = [
     name: "شارژر خورشیدی قابل حمل",
     description:
       "پنل خورشیدی تاشو ۲۰ واتی با دو پورت USB. ضدآب، سبک، ایده‌آل برای کمپینگ و ماجراجویی در فضای باز.",
-    price: 69.99,
-    originalPrice: 94.99,
+    price: 3500000,
+    originalPrice: 4750000,
     category: "الکترونیک",
     image:
       "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=500&q=80",
@@ -536,8 +536,8 @@ export const mockProducts: Product[] = [
     name: "میز قهوه‌خوری مرمری",
     description:
       "میز قهوه‌خوری مدرن با رویه مرمر اصل و پایه‌های فولادی طلایی. سطح ۱۲۰x۶۰ سانتی‌متر، مونتاژ آسان.",
-    price: 399.99,
-    originalPrice: 529.99,
+    price: 20000000,
+    originalPrice: 26500000,
     category: "مبلمان",
     image:
       "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=80",
@@ -552,8 +552,8 @@ export const mockProducts: Product[] = [
     name: "مسواک برقی حرفه‌ای",
     description:
       "مسواک برقی سونیک با ۵ حالت تمیزکاری، سنسور فشار و تایمر ۲ دقیقه‌ای. عمر باتری ۳ هفته.",
-    price: 99.99,
-    originalPrice: 139.99,
+    price: 5000000,
+    originalPrice: 7000000,
     category: "زیبایی",
     image:
       "https://images.unsplash.com/photo-1559591937-abc3e3e3e3e3?w=500&q=80",

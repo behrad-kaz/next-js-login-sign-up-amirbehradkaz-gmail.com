@@ -35,6 +35,7 @@ export default function CartDrawer() {
   }, [isOpen, closeCart]);
 
   const total = getTotalPrice();
+  const shippingCost = total > 500000 ? 0 : 500000;
 
   // Filter out items with invalid product data (handles stale localStorage data)
   const validItems = items.filter((item) => item?.product?.id);
@@ -157,11 +158,13 @@ export default function CartDrawer() {
               </div>
               <div className="flex justify-between text-sm text-slate-400">
                 <span>ارسال</span>
-                <span className="text-emerald-400">رایگان</span>
+                <span className={shippingCost === 0 ? "text-emerald-400" : ""}>
+                  {shippingCost === 0 ? "رایگان" : formatPrice(shippingCost)}
+                </span>
               </div>
               <div className="flex justify-between text-base font-bold text-white pt-2 border-t border-white/10">
                 <span>مبلغ نهایی</span>
-                <span className="text-violet-400">{formatPrice(total)}</span>
+                <span className="text-violet-400">{formatPrice(total + shippingCost)}</span>
               </div>
             </div>
             <Link href="/cart" onClick={closeCart}>

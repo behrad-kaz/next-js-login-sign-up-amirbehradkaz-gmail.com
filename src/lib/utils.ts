@@ -3,10 +3,9 @@ export function cn(...classes: (string | undefined | null | false | 0)[]): strin
 }
 
 export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(price);
+  // Format with thousand separators and add Toman
+  const formatted = new Intl.NumberFormat("fa-IR").format(price);
+  return `${formatted} تومان`;
 }
 
 export function formatDate(dateString: string): string {

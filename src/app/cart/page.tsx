@@ -14,11 +14,13 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
+import { useOrderStore } from "@/store/orderStore";
 import { formatPrice } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCartStore();
+  const { addOrder } = useOrderStore();
   const [coupon, setCoupon] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
@@ -33,7 +35,7 @@ export default function CartPage() {
 
   const subtotal = getTotalPrice();
   const discount = couponApplied ? subtotal * 0.1 : 0;
-  const shipping = subtotal > 50 ? 0 : 9.99;
+  const shipping = subtotal > 500000 ? 0 : 500000;
   const total = subtotal - discount + shipping;
 
   // Filter out items with invalid product data (handles stale localStorage data)
@@ -48,6 +50,8 @@ export default function CartPage() {
   const handleCheckout = async () => {
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1500));
+    // Save order before clearing cart
+    addOrder(validItems, total);
     setLoading(false);
     setCheckoutSuccess(true);
     clearCart();

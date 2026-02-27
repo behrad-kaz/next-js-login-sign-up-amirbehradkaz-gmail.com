@@ -5,6 +5,7 @@ import { Star, ShoppingCart, Heart, Eye } from "lucide-react";
 import { useState } from "react";
 import type { Product } from "@/types";
 import { useCartStore } from "@/store/cartStore";
+import { useWishlistStore } from "@/store/wishlistStore";
 import { formatPrice } from "@/lib/utils";
 import Badge from "@/components/ui/Badge";
 
@@ -14,8 +15,18 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addItem, openCart } = useCartStore();
-  const [isWishlisted, setIsWishlisted] = useState(false);
+  const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist } = useWishlistStore();
   const [addedToCart, setAddedToCart] = useState(false);
+
+  const isLiked = isInWishlist(product.id);
+
+  const handleToggleWishlist = () => {
+    if (isLiked) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
+  };
 
   const handleAddToCart = () => {
     addItem(product);
@@ -42,14 +53,14 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Overlay Actions */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
           <button
-            onClick={() => setIsWishlisted(!isWishlisted)}
+            onClick={handleToggleWishlist}
             className={`w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 ${
-              isWishlisted
+              isLiked
                 ? "bg-red-500 text-white"
                 : "bg-white/20 text-white hover:bg-white/30"
             }`}
           >
-            <Heart className={`w-4 h-4 ${isWishlisted ? "fill-current" : ""}`} />
+            <Heart className={`w-4 h-4 ${isLiked ? "fill-current" : ""}`} />
           </button>
           <button className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200">
             <Eye className="w-4 h-4" />
