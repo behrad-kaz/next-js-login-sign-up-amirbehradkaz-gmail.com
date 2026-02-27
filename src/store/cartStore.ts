@@ -25,6 +25,7 @@ export const useCartStore = create<CartState>()(
       isOpen: false,
 
       addItem: (product, quantity = 1) => {
+        if (!product?.id || typeof product?.price !== 'number') return;
         set((state) => {
           const existing = state.items.find((i) => i.product.id === product.id);
           if (existing) {
@@ -65,12 +66,15 @@ export const useCartStore = create<CartState>()(
       closeCart: () => set({ isOpen: false }),
 
       getTotalItems: () => {
-        return get().items.reduce((sum, item) => sum + item.quantity, 0);
+        return get().items.reduce(
+          (sum, item) => sum + (item?.quantity || 0),
+          0
+        );
       },
 
       getTotalPrice: () => {
         return get().items.reduce(
-          (sum, item) => sum + item.product.price * item.quantity,
+          (sum, item) => sum + ((item?.product?.price || 0) * (item?.quantity || 0)),
           0
         );
       },
