@@ -20,7 +20,6 @@ import { useWishlistStore } from "@/store/wishlistStore";
 import { useReviewStore } from "@/store/reviewStore";
 import { useProductStore } from "@/store/productStore";
 import { formatPrice } from "@/lib/utils";
-import { mockProducts } from "@/lib/data";
 import type { Product } from "@/types";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -42,7 +41,7 @@ export default function ProductPage() {
   const [newComment, setNewComment] = useState("");
   const [newRating, setNewRating] = useState(5);
   
-  const product: Product | undefined = products.find((p) => p.id === productId) || mockProducts.find((p: Product) => p.id === productId);
+  const product: Product | undefined = products.find((p) => p.id === productId);
   const reviews = getReviewsByProductId(productId);
   const avgRating = getAverageRating(productId);
   const reviewCount = getReviewCount(productId);

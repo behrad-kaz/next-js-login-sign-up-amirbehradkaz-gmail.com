@@ -104,21 +104,6 @@ export default function LoginPage() {
             </Button>
           </form>
 
-          {/* Demo credentials */}
-          <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10">
-            <p className="text-xs font-semibold text-slate-400 mb-2">اطلاعات آزمایشی:</p>
-            <div className="space-y-1">
-              <div className="flex justify-between text-xs">
-                <span className="text-slate-500">ادمین:</span>
-                <span className="text-slate-300 font-mono">amirbehradkaz@gmail.com / admin123</span>
-              </div>
-              <div className="flex justify-between text-xs">
-                <span className="text-slate-500">کاربر:</span>
-                <span className="text-slate-300 font-mono">sarah@example.com / user123</span>
-              </div>
-            </div>
-          </div>
-
           {/* Sign up link */}
           <p className="text-center text-sm text-slate-400 mt-6">
             حساب ندارید؟{" "}
