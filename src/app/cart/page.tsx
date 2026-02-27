@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -24,10 +24,20 @@ export default function CartPage() {
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Handle hydration: only render cart items after client-side mount
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const subtotal = getTotalPrice();
   const discount = couponApplied ? subtotal * 0.1 : 0;
   const shipping = subtotal > 50 ? 0 : 9.99;
   const total = subtotal - discount + shipping;
+
+  // Filter out items with invalid product data (handles stale localStorage data)
+  const validItems = items.filter((item) => item?.product?.id);
 
   const handleApplyCoupon = () => {
     if (coupon.toUpperCase() === "LUXE10") {
@@ -79,11 +89,11 @@ export default function CartPage() {
           <div className="h-4 w-px bg-white/10" />
           <h1 className="text-2xl font-black text-white">سبد خرید</h1>
           <span className="px-2.5 py-0.5 rounded-full bg-violet-500/20 text-violet-400 text-sm font-medium">
-            {items.length} کالا
+            {validItems.length} کالا
           </span>
         </div>
 
-        {items.length === 0 ? (
+        {validItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 gap-6">
             <div className="w-24 h-24 rounded-3xl bg-white/5 flex items-center justify-center">
               <ShoppingBag className="w-12 h-12 text-slate-600" />
@@ -102,7 +112,7 @@ export default function CartPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-4">
-              {items.map((item) => (
+              {validItems.map((item) => (
                 <div
                   key={item.product.id}
                   className="flex gap-5 p-5 rounded-2xl bg-slate-900/50 border border-white/10 hover:border-white/20 transition-all duration-200"

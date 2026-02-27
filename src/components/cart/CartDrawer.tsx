@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { X, ShoppingBag, Minus, Plus, Trash2, ArrowLeft } from "lucide-react";
@@ -12,6 +12,13 @@ export default function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, getTotalPrice, clearCart } =
     useCartStore();
   const drawerRef = useRef<HTMLDivElement>(null);
+
+  // Handle hydration: only render cart items after client-side mount
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -28,6 +35,9 @@ export default function CartDrawer() {
   }, [isOpen, closeCart]);
 
   const total = getTotalPrice();
+
+  // Filter out items with invalid product data (handles stale localStorage data)
+  const validItems = items.filter((item) => item?.product?.id);
 
   return (
     <>
@@ -55,7 +65,7 @@ export default function CartDrawer() {
             <div>
               <h2 className="text-lg font-bold text-white">سبد خرید</h2>
               <p className="text-xs text-slate-400">
-                {items.length} {items.length === 1 ? "کالا" : "کالا"}
+                {validItems.length} {validItems.length === 1 ? "کالا" : "کالا"}
               </p>
             </div>
           </div>
@@ -69,7 +79,7 @@ export default function CartDrawer() {
 
         {/* Items */}
         <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
-          {items.length === 0 ? (
+          {validItems.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full gap-4 text-center">
               <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center">
                 <ShoppingBag className="w-10 h-10 text-slate-600" />
@@ -85,7 +95,7 @@ export default function CartDrawer() {
               </Button>
             </div>
           ) : (
-            items.map((item) => (
+            validItems.map((item) => (
               <div
                 key={item.product.id}
                 className="flex gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition-all duration-200"
@@ -138,7 +148,7 @@ export default function CartDrawer() {
         </div>
 
         {/* Footer */}
-        {items.length > 0 && (
+        {validItems.length > 0 && (
           <div className="px-6 py-5 border-t border-white/10 space-y-4">
             <div className="space-y-2">
               <div className="flex justify-between text-sm text-slate-400">

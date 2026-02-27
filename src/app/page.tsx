@@ -1,7 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, SlidersHorizontal, TrendingUp, Zap, Shield, Truck, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Search,
+  SlidersHorizontal,
+  TrendingUp,
+  Zap,
+  Shield,
+  Truck,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { useProductStore } from "@/store/productStore";
 import { categories } from "@/lib/data";
 import ProductCard from "@/components/shop/ProductCard";
@@ -41,7 +50,7 @@ export default function HomePage() {
           p.name.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
-          p.tags.some((t) => t.toLowerCase().includes(q))
+          p.tags.some((t) => t.toLowerCase().includes(q)),
       );
     }
 
@@ -61,7 +70,8 @@ export default function HomePage() {
         break;
       case "newest":
         result.sort(
-          (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
         );
         break;
     }
@@ -130,18 +140,16 @@ export default function HomePage() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-sm font-medium mb-6">
-            <Zap className="w-4 h-4" />
-            محصولات جدید هر هفته
-          </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            کشف کنید{" "}
-            <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-              محصولات ویژه
+             فروشگاه 
+            <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent mr-4">
+              KAZ STORE 
             </span>
+
           </h1>
           <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            مجموعه‌ای منتخب از بهترین محصولات. کیفیت و سبک در هر کالایی که ارائه می‌دهیم.
+            مجموعه‌ای منتخب از بهترین محصولات کیفیت و سبک در هر کالایی که ارائه
+            می‌دهیم.
           </p>
 
           {/* Search Bar */}
@@ -193,7 +201,7 @@ export default function HomePage() {
                   "px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all duration-200 flex-shrink-0",
                   selectedCategory === cat
                     ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25"
-                    : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10"
+                    : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10",
                 )}
               >
                 {cat}
@@ -204,7 +212,9 @@ export default function HomePage() {
           {/* Sort & Results */}
           <div className="flex items-center justify-between gap-4">
             <p className="text-sm text-slate-400">
-              <span className="text-white font-semibold">{filteredProducts.length}</span>{" "}
+              <span className="text-white font-semibold">
+                {filteredProducts.length}
+              </span>{" "}
               محصول یافت شد
               {totalPages > 1 && (
                 <span className="mr-2 text-slate-500">
@@ -220,7 +230,11 @@ export default function HomePage() {
                 className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-violet-500 cursor-pointer"
               >
                 {sortOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value} className="bg-slate-800">
+                  <option
+                    key={opt.value}
+                    value={opt.value}
+                    className="bg-slate-800"
+                  >
                     {opt.label}
                   </option>
                 ))}
@@ -236,11 +250,18 @@ export default function HomePage() {
               <Search className="w-10 h-10 text-slate-600" />
             </div>
             <div className="text-center">
-              <p className="text-xl font-semibold text-slate-300">محصولی یافت نشد</p>
-              <p className="text-slate-500 mt-1">جستجو یا فیلترها را تغییر دهید</p>
+              <p className="text-xl font-semibold text-slate-300">
+                محصولی یافت نشد
+              </p>
+              <p className="text-slate-500 mt-1">
+                جستجو یا فیلترها را تغییر دهید
+              </p>
             </div>
             <button
-              onClick={() => { handleSearchChange(""); handleCategoryChange("همه"); }}
+              onClick={() => {
+                handleSearchChange("");
+                handleCategoryChange("همه");
+              }}
               className="px-6 py-2.5 rounded-xl bg-violet-500/20 text-violet-400 text-sm font-medium hover:bg-violet-500/30 transition-all duration-200"
             >
               پاک کردن فیلترها
@@ -265,7 +286,7 @@ export default function HomePage() {
                     "flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200",
                     currentPage === 1
                       ? "bg-white/5 text-slate-600 cursor-not-allowed"
-                      : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10"
+                      : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10",
                   )}
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -276,7 +297,10 @@ export default function HomePage() {
                 <div className="flex items-center gap-1">
                   {getPageNumbers().map((page, idx) =>
                     page === "..." ? (
-                      <span key={`ellipsis-${idx}`} className="px-2 text-slate-500 text-sm">
+                      <span
+                        key={`ellipsis-${idx}`}
+                        className="px-2 text-slate-500 text-sm"
+                      >
                         ...
                       </span>
                     ) : (
@@ -287,12 +311,12 @@ export default function HomePage() {
                           "w-10 h-10 rounded-xl text-sm font-medium transition-all duration-200",
                           currentPage === page
                             ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25"
-                            : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10"
+                            : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10",
                         )}
                       >
                         {page}
                       </button>
-                    )
+                    ),
                   )}
                 </div>
 
@@ -304,7 +328,7 @@ export default function HomePage() {
                     "flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200",
                     currentPage === totalPages
                       ? "bg-white/5 text-slate-600 cursor-not-allowed"
-                      : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10"
+                      : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10",
                   )}
                 >
                   بعدی
@@ -317,8 +341,11 @@ export default function HomePage() {
             {totalPages > 1 && (
               <p className="text-center text-sm text-slate-500 mt-4">
                 نمایش {(currentPage - 1) * PRODUCTS_PER_PAGE + 1}–
-                {Math.min(currentPage * PRODUCTS_PER_PAGE, filteredProducts.length)} از{" "}
-                {filteredProducts.length} محصول
+                {Math.min(
+                  currentPage * PRODUCTS_PER_PAGE,
+                  filteredProducts.length,
+                )}{" "}
+                از {filteredProducts.length} محصول
               </p>
             )}
           </>

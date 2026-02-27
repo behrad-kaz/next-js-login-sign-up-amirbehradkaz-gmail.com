@@ -12,7 +12,7 @@ import {
   X,
   Sparkles,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "@/store/authStore";
 import { useCartStore } from "@/store/cartStore";
 import { cn } from "@/lib/utils";
@@ -23,6 +23,13 @@ export default function Header() {
   const { currentUser, isAuthenticated, logout } = useAuthStore();
   const { getTotalItems, openCart } = useCartStore();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Handle hydration: only render dynamic content after client-side mount
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const totalItems = getTotalItems();
 
@@ -46,7 +53,7 @@ export default function Header() {
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
-              لوکس‌شاپ
+             KAZSHOP
             </span>
           </Link>
 
@@ -91,7 +98,7 @@ export default function Header() {
               aria-label="باز کردن سبد خرید"
             >
               <ShoppingCart className="w-5 h-5" />
-              {totalItems > 0 && (
+              {mounted && totalItems > 0 && (
                 <span className="absolute -top-1 -left-1 w-5 h-5 bg-gradient-to-r from-violet-500 to-indigo-500 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
                   {totalItems > 9 ? "۹+" : totalItems}
                 </span>
@@ -99,7 +106,7 @@ export default function Header() {
             </button>
 
             {/* User Menu */}
-            {isAuthenticated && currentUser ? (
+            {mounted && isAuthenticated && currentUser ? (
               <div className="hidden md:flex items-center gap-2">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10">
                   <div className="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white">
